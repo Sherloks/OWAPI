@@ -1,3 +1,4 @@
+
 ## OW API
 
 [Donate to keep OWAPI alive](https://www.patreon.com/sundwarf)
@@ -30,9 +31,9 @@ OWAPI has a few requirements:
 
  1. **Clone the repository.**
  
-     `git clone https://github.com/SunDwarf/OWAPI.git`
+     `git clone https://github.com/Sherloks/OWAPI.git`
      
- 2. **Setup a Redis server.**
+2. **Setup a Redis server.**
  
      Redis should be running on the default port - 6379. You can override this in config.yml;
      however.
@@ -42,13 +43,23 @@ OWAPI has a few requirements:
      For Debian/Ubuntu, you can install one with:
      `sudo apt install redis-server`
      
-     You can enable it with:
-     `sudo systemctl enable redis-server && sudo systemctl start redis-server`.
+     You can enable it at boot with:
+     `sudo systemctl enable redis-server`
+     
+     You can start it with:
+     `sudo systemctl start redis-server`.
      
  4. **Install the requirements.**
 
      For debian-based systems, run this first:
         `sudo apt install libxslt-dev python3-dev build-essential zlib1g-dev pkg-config`
+
+     To install pipenv (if you're using Ubuntu 17.10):
+
+        `sudo apt install software-properties-common python-software-properties`
+        `sudo add-apt-repository ppa:pypa/ppa`
+        `sudo apt update`
+        `sudo apt install pipenv`
 
      To set up the virtualenv:
      `pipenv install`
@@ -56,7 +67,7 @@ OWAPI has a few requirements:
  5. **Copy and tweak the example config file.**
 
     `cp config.example.yml config.yml`
-     
+    
  6. **Start the OWAPI server.**
  
      `PYTHONPATH=. pipenv run asphalt run config.yml`
